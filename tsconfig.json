@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "es2015",
+        "lib": ["dom", "es2015", "es2015.promise"],
+        "allowJs": true,
+        "jsx": "react",
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "alwaysStrict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "paths": {
+            "*": ["*", "src/*"]
+        },
+        "outDir": "dist",
+        "typeRoots": ["definitions"],
+        "allowSyntheticDefaultImports": true
+    },
+    "exclude": ["node_modules"],
+    "include": ["src/**/*", "definitions/**/*"]
+}
