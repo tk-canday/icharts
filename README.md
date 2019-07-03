@@ -14,7 +14,7 @@ $ npm install icharts --save
 
 ```jsx
 import React from 'react';
-import { Axis, Line, UmuChart, Scale } from 'businessCommon/umuChart';
+import { Axis, Line, Chart, Scale } from 'icharts';
 
 export const LineChart = (): JSX.Element => {
   const data = [
@@ -90,12 +90,12 @@ export const LineChart = (): JSX.Element => {
 
   return (
     <div className="line-chart">
-        <UmuChart data={data} padding={[60, 0, 80, 50]}>
+        <Chart data={data} padding={[60, 0, 80, 50]}>
             <Line position="date*rate" color={{field: 'type', value: colorValue}} />
             <Scale field="rate" tickCount={5} formatter={formatterRate} />
             <Scale field="date" tickCount={4} type="timeCat" />
             <Axis field="date" label={dateAxisStyle} />
-        </UmuChart>
+        </Chart>
     </div>
   );
 };
