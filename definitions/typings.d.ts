@@ -3,9 +3,6 @@
  */
 
 // ----- 三方非模块化类库提供的全局变量 ------
-declare const React: any;
-declare const ReactDom: any;
-
 declare module '@antv/f2' {
     class Chart {
         constructor(config: {

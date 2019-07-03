@@ -1,23 +1,8 @@
-# icharts
-
-## 说明
-
-`icharts` 是基于 [F2](https://antv.alipay.com/zh-cn/f2/3.x/index.html) 的 React 图表库。 具有轻量、灵活、高复用、可拔插的特点
-
-## 安装
-
-```bash
-$ npm i @canday/icharts --save
-```
-
-## 使用
-
-```jsx
-import React from 'react';
-import { Axis, Line, Chart, Scale } from 'icharts';
+import React, {useState} from 'react';
+import { Axis, Line, Chart, Scale } from '../../dist';
 
 export const LineChart = (): JSX.Element => {
-  const data = [
+  const initData = [
     {
       date: 1529856000000,
       type: '本基金',
@@ -69,6 +54,7 @@ export const LineChart = (): JSX.Element => {
       rate: -0.13,
     },
   ];
+  const [data] = useState(initData);
 
   const colorValue = (field: string) => {
     if (field === '同类均值') {
@@ -82,23 +68,17 @@ export const LineChart = (): JSX.Element => {
     return rate + '%';
   };
 
-  const dateAxisStyle = {
-      rotate: -Math.PI / 3,
-      textAlign: 'end',
-      translate: '(20, 20)'
+  const render = () => {
+      return (
+          <div className="line-chart">
+              <Chart data={data} padding={[60, 0, 80, 50]}>
+                  <Line position="date*rate" color={{field: 'type', value: colorValue}} size="2"/>
+                  <Scale field="rate" tickCount={5} formatter={formatterRate} />
+                  <Scale field="date" tickCount={4} type="timeCat" />
+                  <Axis field="date" label={{rotate: -Math.PI / 3, textAlign: 'end', translate: '(20, 20)'}} />
+              </Chart>
+          </div>
+      );
   };
-
-  return (
-    <div className="line-chart">
-        <Chart data={data} padding={[60, 0, 80, 50]}>
-            <Line position="date*rate" color={{field: 'type', value: colorValue}} />
-            <Scale field="rate" tickCount={5} formatter={formatterRate} />
-            <Scale field="date" tickCount={4} type="timeCat" />
-            <Axis field="date" label={dateAxisStyle} />
-        </Chart>
-    </div>
-  );
+  return render();
 };
-```
-
-![chart](http://m.qpic.cn/psb?/V11MoL6F3QoSam/WKotETzmKP1XlP62smKX8Aa9uhLlsUL77wN7Y4CCIzc!/b/dFMBAAAAAAAA&bo=tARuAgAAAAADB*4!&rf=viewer_4)
