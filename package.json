@@ -1,8 +1,8 @@
 {
   "name": "@canday/icharts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "基于 F2 的 React 图表库",
-  "main": "dist/index.js",
+  "main": "output/index.js",
   "dependencies": {
     "@antv/f2": "^3.3.9",
     "react": "16.8.6"
@@ -10,11 +10,17 @@
   "devDependencies": {
     "@types/node": "10.9.4",
     "@types/react": "^16.8.22",
+    "css-loader": "^3.0.0",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^6.0.4",
     "tslint": "5.10.0",
-    "typescript": "3.0.3"
+    "tslint-loader": "^3.5.4",
+    "typescript": "3.0.3",
+    "webpack": "4.17.1",
+    "webpack-cli": "3.1.2"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "webpack --config=./webpack.config.js --watch --env.progress",
     "pub": "npm publish --access public"
   },
   "repository": {

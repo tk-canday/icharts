@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "es5",
-        "module": "es2015",
+        "module": "es6",
         "lib": ["dom", "es2015", "es2015.promise"],
         "jsx": "react",
         "strict": true,
@@ -18,10 +18,10 @@
         "paths": {
             "*": ["*", "src/*"]
         },
-        "outDir": "dist",
+        "outDir": "./output",
         "typeRoots": ["definitions"],
         "allowSyntheticDefaultImports": true
     },
-    "exclude": ["node_modules", "dist"],
+    "exclude": ["node_modules"],
     "include": ["src/**/*", "definitions/**/*"]
 }
