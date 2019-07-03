@@ -1,5 +1,6 @@
-const path = require('path');
+const path = require('path')
 const webpack = require('webpack');
+const NpmDtsPlugin = require('npm-dts-webpack-plugin')
 
 module.exports = {
     mode: 'development',
@@ -21,18 +22,7 @@ module.exports = {
                     {loader: 'css-loader'},
                 ],
             },
-            {
-                test: /\.(t|j)sx?$/,
-                use: [
-                    {
-                        loader: 'ts-loader',
-                        options: {
-                            transpileOnly: true,
-                            experimentalWatchApi: true,
-                        },
-                    },
-                ],
-            },
+            { test: /\.tsx?$/, loader: "ts-loader" },
             {
                 test: /\.tsx?$/,
                 enforce: 'pre',
@@ -51,5 +41,8 @@ module.exports = {
             //     query: {presets: ['es2015']}
             // }
         ]
-    }
+    },
+    plugins: [
+        new NpmDtsPlugin(),
+    ],
 };
