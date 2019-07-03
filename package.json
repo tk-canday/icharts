@@ -1,5 +1,5 @@
 {
-  "name": "icharts",
+  "name": "@canday/icharts",
   "version": "1.0.0",
   "description": "基于 F2 的 React 图表库",
   "main": "dist/index.js",
@@ -15,7 +15,6 @@
     "@types/node": "10.9.4",
     "@types/react-router": "4.4.4",
     "@types/react-router-dom": "4.3.1",
-    "sass-loader": "7.0.1",
     "style-loader": "0.21.0",
     "ts-loader": "5.0.0",
     "tslint": "5.10.0",

@@ -7,7 +7,7 @@
 ## 安装
 
 ```bash
-$ npm install icharts --save
+$ npm install @canday/icharts --save
 ```
 
 ## 使用
